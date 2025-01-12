@@ -152,34 +152,33 @@ console.log(neNelyginiai([-3, -2, -1, 0, 1, 2])); // [-2, 0, 2]
 // // Atrinkti skaičiai turi būti grąžinti ta pačia tvarka kaip originaliame masyve.
 
 // // a. Variantas einant ciklu per masyvą
-function nedaugiauNeiNKartu(masyvas, n) {
-    //čia visa logika
+// function nedaugiauNeiNKartu(masyvas, n) {
+//     //čia visa logika
+// const rezultatas = [];
+// masyvas.forEach(element => {
+//     if (rezultatas.filter(e => e === element).length < n) {
+//         rezultatas.push(element);
+//     }
+    
+// });
+//     return rezultatas;
+// }
 
-    return;
-}
+// // // b. Variantas naudojant filtravimą filtravime.
+// function nedaugiauNeiNKartu(masyvas, n) {
+//     const rezultatas = masyvas.filter((el, index, arr) => {
+//         const sliceMasyvas = arr.slice(0, index + 1);
+//         console.log(sliceMasyvas);
+//         const pasikartojimai = sliceMasyvas.filter(x => x === el).length;
+//         console.log(pasikartojimai);
+//         return pasikartojimai <= n;
+//     })
+//     return rezultatas;
+// }
+    
 
-// // b. Variantas naudojant filtravimą filtravime.
-function nedaugiauNeiNKartu(masyvas, n) {
-    //čia visa logika
-    let skaiciuPaskyra = {};
-    return masyvas.filter((num) => {
-        // Jei elementas dar nepasikartojo tiek kartų, kiek leidžia skaičius
-        if (!skaiciuPaskyra[num]) {
-            skaiciuPaskyra[num] = 0;
-        }
-
-        // Patikriname, ar elementas pasikartoja mažiau nei nurodytas skaičius
-        if (skaiciuPaskyra[num] < n) {
-            skaiciuPaskyra[num]++; // Padidiname pasikartojimų skaičių
-            return true; // Įtraukiame elementą į filtruotą masyvą
-        }
-
-        return false; // Elementas nebus įtrauktas, jei pasikartoja daugiau nei leistina
-    });
-}
-
-console.log(nedaugiauNeiNKartu([1, 3, 4, 1, 4, 1, 4, 3], 2)); // [1, 3, 4, 1, 4, 3]
-console.log(nedaugiauNeiNKartu([45, 81, 96, 45, 37, 81], 1)); // [45, 81, 96, 37]
+// console.log(nedaugiauNeiNKartu([1, 3, 4, 1, 4, 1, 4, 3], 2)); // [1, 3, 4, 1, 4, 3]
+// console.log(nedaugiauNeiNKartu([45, 81, 96, 45, 37, 81], 1)); // [45, 81, 96, 37]
 
 // // 6. Užduotis
 // // Parašykite funkciją, kuriai paduodami du skaičiai (a, b), funkcija sudeda pirmojo skaičiaus (a) skaitmenis prieš tai pakeliant juos laipsniu (b) (pirmas skaitmuo keliamas laipsniu (b), laipsnis didėja vienetu kiekvienam sekančiam skaitmeniui).
@@ -275,28 +274,33 @@ console.log(nedaugiauNeiNKartu([45, 81, 96, 45, 37, 81], 1)); // [45, 81, 96, 37
 // //  *****
 
 // // a. Variantas naudojant for ciklą
-// function eglute(aukstai) {
-//     // čia visa logika
-//     return
-// }
+function eglute(aukstai) {
+    const egle = [];
+    for (let i =0; i < aukstai; i++) {
+        const tarpai = ' '.repeat(aukstai - i - 1);
+        const zvaigzdutes = '*'.repeat(2*i+1)
+        egle.push(tarpai + zvaigzdutes + tarpai);
+    }
+    return egle.join('\n')
+}
 
-// // b. Variantas naudojant .map
-// function eglute(aukstai) {
-//     // čia visa logika
-//     return
-// }
+// b. Variantas naudojant .map
+function eglute(aukstai) {
+    // čia visa logika
+    return
+}
 
-// console.log(eglute(4));
-// //    *
-// //   ***
-// //  *****
-// // *******
-// console.log(eglute(5));
-// //     *
-// //    ***
-// //   *****
-// //  *******
-// // *********
+console.log(eglute(4));
+//    *
+//   ***
+//  *****
+// *******
+console.log(eglute(5));
+//     *
+//    ***
+//   *****
+//  *******
+// *********
 
 // // 12. Užduotis
 // // Parašykite funkciją, kuri pašalina visus '!' iš stringo ir grąžina stringą tik su šauktuku gale.
